@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# A git hook to run git-secrets (locally 'installed') against a repository.
+# This should be extended to do much more verification and error handling,
+# but is presented as a demonstration.
+#
+# This assumes you've already setup git-secrets patterns (i.e. "git-secrets --register-aws").
+
+RESPONSE=`git-secrets/git-secrets --scan -r .`
+RC=$?
+
+if [[ $RC -eq 1 ]]; then
+    # return code 1 from git-secrets indicates scan found a verboten string
+    echo
+    echo
+    echo "ERROR: [pre-commit hook] Aborting commit because git-secrets found a prohibited pattern in this repository"
+    echo "Please remove the file with the pattern in the output above from this repository!"
+    echo
+    exit 1
+else
+    # not found
+    exit 0
+fi
