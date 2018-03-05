@@ -51,4 +51,9 @@ common pattern we're thinking about is the AWS key ID/secret key.
 In this script demo3.py we will set up a pre-commit hook that runs
 git-secrets and exits if there is an AWS credential found.
 
-For this demo you must first run the
+
+#### Meta
+
+Matt Bacchi
+
+Distributed under the BSD (Simplified) license. See LICENSE for more information.
