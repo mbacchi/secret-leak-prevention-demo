@@ -24,7 +24,7 @@ def prompt_any_key():
 
 def create_pre_commit_hook():
 
-    script = """#!/bin/sh
+    script = """#!/bin/bash
 #
 # A git hook to check whether credentials files exist in the staged files list
 
