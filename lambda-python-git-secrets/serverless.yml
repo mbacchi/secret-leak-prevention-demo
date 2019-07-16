@@ -1,0 +1,29 @@
+service: lambda-python-git-secrets
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+plugins:
+  - serverless-python-requirements
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
+    noDeploy:
+      - boto3
+
+provider:
+  name: aws
+  region: ${AWS_REGION, 'us-east-2'}
+  runtime: python3.7
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - execute-api:Invoke
+      Resource: "arn:aws:execute-api:${self:provider.region}:*:*"
+
+functions:
+  python-git-secrets:
+    handler: demo4.python_git_secrets
+    events:
+      - schedule: rate(1 minute)
+        enabled: false
+        description: 'Scheduled event for the demo running python-git-secrets in a Lambda Function'

@@ -1,0 +1,4 @@
+certifi==2019.6.16
+dulwich==0.19.11
+python-git-secrets==0.1.2
+urllib3==1.25.3

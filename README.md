@@ -25,8 +25,10 @@ itself. Run `man gitignore` to get full help. You can still force a file
 to be included with `git add` and `git commit` but you have to really
 forget about the fact that you have added it to the `.gitignore` file.
 
-Our demo script `demo1.py` will show how to utilize this functionality
-to prevent a file or directory from being checked into Git.
+Our [demo script
+`demo1.py`](https://github.com/mbacchi/secret-leak-prevention-demo/blob/master/gitignore/demo1.py)
+will show how to utilize this functionality to prevent a file or directory from
+being checked into Git.
 
 ### How to use the Git Pre-commit Hook
 
@@ -35,9 +37,10 @@ case we will use the pre-commit hook to perform some action just prior
 to actually allowing a `git commit` from being executed. Again, use
 `man githooks` to learn how to use these tools.
 
-In our demo script `demo2.py`, we will show how do this with a simple
-test for a file name called `credentials` which usually contains an AWS
-key ID/secret key.
+In [our demo script
+`demo2.py`](https://github.com/mbacchi/secret-leak-prevention-demo/blob/master/pre-commit/demo2.py),
+we will show how do this with a simple test for a file name called `credentials`
+which usually contains an AWS key ID/secret key.
 
 FYI, a pre-commit hook script must be executable! If it is not it will
 not run and silently allow your commits.
@@ -48,8 +51,19 @@ AWS Labs created a bash tool that will look in a file or recursively
 search a directory structure for certain patterns. Obviously the most
 common pattern we're thinking about is the AWS key ID/secret key.
 
-In this script demo3.py we will set up a pre-commit hook that runs
-git-secrets and exits if there is an AWS credential found.
+In the [script
+demo3.py](https://github.com/mbacchi/secret-leak-prevention-demo/blob/master/gitsecrets/demo3.py)
+we will set up a pre-commit hook that runs git-secrets and exits if there is an
+AWS credential found.
+
+### Running python-git-secrets in an AWS Lambda Function
+
+The [fourth
+demo](https://github.com/mbacchi/secret-leak-prevention-demo/tree/master/lambda-python-git-secrets)
+uses the library
+[python-git-secrets](https://github.com/mbacchi/python-git-secrets) in an AWS
+Lambda function to clone a GitHub repository, then scan the repository for
+secrets.
 
 
 #### Meta
