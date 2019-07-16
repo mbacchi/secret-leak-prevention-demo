@@ -4,6 +4,7 @@ frameworkVersion: ">=1.1.0 <2.0.0"
 
 plugins:
   - serverless-python-requirements
+
 custom:
   pythonRequirements:
     dockerizePip: non-linux
@@ -24,6 +25,7 @@ functions:
   python-git-secrets:
     handler: demo4.python_git_secrets
     events:
-      - schedule: rate(1 minute)
-        enabled: false
-        description: 'Scheduled event for the demo running python-git-secrets in a Lambda Function'
+      - schedule:
+          rate: rate(1 minute)
+          enabled: false
+          description: 'Scheduled event for the demo running python-git-secrets in a Lambda Function'
