@@ -6,6 +6,7 @@ import shutil
 from dulwich import porcelain
 from gitsecrets import GitSecrets
 from string import ascii_uppercase, ascii_lowercase, digits
+from tempfile import mkdtemp
 
 # For this demo we use Dulwich instead of Git to clone a repository from GitHub.
 #
@@ -39,7 +40,7 @@ def python_git_secrets(event, context):
     # Set the GitHub repository to clone and the directory to clone into for
     # demonstration purposes
     repo = 'https://github.com/mbacchi/python-git-secrets.git'
-    target = '/tmp/python-git-secrets'
+    target = mkdtemp()
 
     # If the target path exists remove it so we don't error out when cloning
     # later
@@ -76,3 +77,6 @@ def python_git_secrets(event, context):
     print("Now scanning directory \'{}\' for secrets".format(target))
     if gs.scan_recursively(target):
         print("Found verboten string in path \'{}\'".format(target))
+
+    # Remove temp dir
+    shutil.rmtree(target)
