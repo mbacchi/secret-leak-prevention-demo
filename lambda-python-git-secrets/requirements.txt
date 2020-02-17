@@ -1,4 +1,4 @@
-certifi==2019.6.16
-dulwich==0.19.11
-python-git-secrets==0.1.2
-urllib3==1.25.3
+certifi==2019.11.28
+dulwich==0.19.15 --global-option=--pure
+python-git-secrets==0.1.3
+urllib3==1.25.8

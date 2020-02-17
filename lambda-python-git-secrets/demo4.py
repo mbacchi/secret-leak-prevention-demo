@@ -55,7 +55,11 @@ def python_git_secrets(event, context):
 
     # Create a random uppercase string that looks like an AWS ACCES_KEY_ID value
     print("Creating file in directory \'{}\' with content that looks like an AWS ACCESS_KEY_ID\n".format(target))
-    key = ''.join(random.choice(ascii_uppercase) for _ in range(20))
+    patterns = [''.join("A3T" + random.choice(ascii_uppercase)), 'AKIA',
+                'AGPA', 'AIDA', 'AROA', 'AIPA', 'ANPA', 'ANVA', 'ASIA']
+    prefix = random.choice(patterns)
+    generated = ''.join(random.choice(ascii_uppercase) for _ in range(16))
+    key = prefix + generated
     newfile(target + '/aws-credentials', "aws_access_key_id=" + key)
 
     # Show the users the string we placed in the file above
