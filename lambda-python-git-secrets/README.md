@@ -134,7 +134,7 @@ REPORT RequestId: 7fedaefd-5e62-4699-b635-c694d20c8699	Duration: 390.15 ms	Bille
 
 As you see, the output displays the print statements that we execute in the
 [demo
-script](https://github.com/mbacchi/secret-leak-prevention-demo/blob/master/lambda-python-git-secrets/demo4.py#L74),
+script](https://github.com/mbacchi/secret-leak-prevention-demo/blob/master/lambda-python-git-secrets/demo4.py#L78),
 such as the `Found verboten string` output when it has found a pattern that matches an AWS access key.
 
 ## Removing the Function
