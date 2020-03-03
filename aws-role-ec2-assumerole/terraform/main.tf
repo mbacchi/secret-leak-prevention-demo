@@ -53,23 +53,6 @@ EOF
 
 }
 
-# resource "aws_iam_policy" "demo_aws_role_ec2_assumerole" {
-
-#   policy = <<EOF
-# {
-#   "Version": "2012-10-17",
-#   "Statement": [
-#     {
-#       "Effect": "Allow",
-#       "Action": "sts:AssumeRole",
-#       "Resource": "${aws_iam_role.demo_aws_role_ec2_assumerole.arn}"
-#     }
-#   ]
-# }
-# EOF
-
-# }
-
 resource "aws_iam_role_policy" "demo_aws_s3_write_role_policy" {
   role = aws_iam_role.demo_aws_role_ec2_assumerole.id
 
@@ -91,11 +74,6 @@ resource "aws_iam_role_policy" "demo_aws_s3_write_role_policy" {
 }
 EOF
 }
-
-# resource "aws_iam_role_policy_attachment" "demo_aws_role_ec2_assumerole" {
-#   role       = aws_iam_role.demo_aws_role_ec2_assumerole.name
-#   policy_arn = aws_iam_policy.demo_aws_role_ec2_assumerole.arn
-# }
 
 resource "aws_iam_instance_profile" "demo_instance_profile" {
   name = "demo_instance_profile"
