@@ -42,17 +42,30 @@ else
 fi"""
 
     d = '.git/hooks/pre-commit'
+    # d = "pre-commit"
     if not os.path.exists(d):
         print("Creating the file \'{}\'".format(d))
         with open(d, 'w') as f:
             f.write(script)
 
+def check_repo_pre_commit_hook():
+    curdir = os.path.dirname(os.path.realpath(__file__))
+
+    expected = curdir + '/../.git/hooks/pre-commit'
+
+    if not os.path.exists(expected):
+        # print("{} doesn't exist!".format(expected))
+        return 1
+    else:
+        # print("{} exists".format(expected))
+        return 0
 
 if __name__ == '__main__':
 
-    print("Starting git pre-commit hook demo...\n\n")
+    print("Starting git pre-commit hook demo...\n")
 
-    create_pre_commit_hook()
+    if check_repo_pre_commit_hook():
+        create_pre_commit_hook()
 
     run_cmd(['cat', '.git/hooks/pre-commit'])
 
