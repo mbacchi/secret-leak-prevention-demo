@@ -2,7 +2,7 @@
 
 This is a demonstration of how to prevent secrets (such as AWS
 credentials) from being leaked to Github. It is modeled after the
-blog post I wrote [about preventing Github secret exposures.](http://mbacchi.github.io/2017/12/22/3-ways-prevent-secret-leaks-github.html)
+blog post I wrote [about preventing Github secret exposures.](https://bacchi.org/posts/3-ways-prevent-secret-leaks-github/)
 
 The AWS Labs git-secrets tool is available [here](https://github.com/awslabs/git-secrets)
 
